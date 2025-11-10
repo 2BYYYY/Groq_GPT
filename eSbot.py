@@ -9,7 +9,7 @@ def init_chroma(query: str) -> list:
     collection = chroma_client.get_or_create_collection(name="USLS_SCHOLARSHIPS")
     results = collection.query(
                     query_texts=[query], 
-                    n_results=5
+                    n_results=3
                     )
     return results["documents"]
 

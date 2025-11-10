@@ -1,4 +1,3 @@
 .env
-eSbot_db.py
 test_bot.py
 __pycache__

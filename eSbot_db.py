@@ -1,5 +1,4 @@
 import chromadb
-import shutil
 
 def load_data():
     # 500MB free tier
@@ -27,6 +26,8 @@ def load_data():
                 "STUDENT ASSISTANTSHIP PROGRAM (WORKING STUDENTS): Reminders is as follows Please place your application in a legal-size brown envelope, labeled with your last name, first name, and middle initial using a marker. Example: de la Cruz, Juan T. Submit the hard copies of your scholarship application documents to the Admissions and Scholarships Administration Office (ASAO): Clear copies of Water, Electric, and Telephone Billing Statements, Complete and clear copy of your parents' Proof of Income, Copy of your Report Card or Certificate of Grades, Application letter"
             ]
         )
+
+    print("Number of entries:", collection.count())
 
 if __name__ == "__main__":
     load_data()

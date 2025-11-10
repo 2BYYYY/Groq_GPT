@@ -1,10 +1,11 @@
 import os
 import chromadb
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from groq import Groq
 
 def init_chroma(query: str) -> list:
-    chroma_client = chromadb.PersistentClient(path="./chroma_db")
+    # railway volume path (local: ./chroma_db)
+    chroma_client = chromadb.PersistentClient(path="/usls_scholarships")
     collection = chroma_client.get_or_create_collection(name="USLS_SCHOLARSHIPS")
     results = collection.query(
                     query_texts=[query], 
@@ -13,7 +14,7 @@ def init_chroma(query: str) -> list:
     return results["documents"][0]
 
 def run_eSbot(query: str) -> str:
-    load_dotenv()
+    # local use (load_dotenv()) 
     institution_resources = "https://www.usls.edu.ph/overviews/Scholarships"
     content_in = f"""
             You are an AI assistant for eSkolar that must answer questions based on the provided context.
@@ -36,7 +37,8 @@ def run_eSbot(query: str) -> str:
             ANSWER:
     """
     client = Groq(
-        api_key=os.environ.get("GROQ_API_KEY"),
+        # railway env
+        api_key=os.environ.get("GROQ_API"),
     )
     chat_completion = client.chat.completions.create(
         messages=[

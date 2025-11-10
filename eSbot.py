@@ -11,7 +11,7 @@ def init_chroma(query: str) -> list:
                     query_texts=[query], 
                     n_results=5
                     )
-    return results["documents"]
+    return results["documents"][0]
 
 def run_eSbot(query: str) -> str:
     # local use (load_dotenv()) 

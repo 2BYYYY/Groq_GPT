@@ -1,2 +1,4 @@
 .env
 __pycache__
+test_api.py
+test_bot.py

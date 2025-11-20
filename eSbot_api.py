@@ -9,11 +9,11 @@ class eSbot_request(BaseModel):
     query: str
 
 @api.post("/query")
-def eSbot_query(query: eSbot_request):
-    rag_query = query.query
+def eSbot_query(request: eSbot_request):
+    rag_query = request.query
     answer = run_eSbot(rag_query)
-    return {"response": answer} 
+    return { "response": answer } 
 
 @api.get("/ping")
 def eSbot_ping():
-    return {"status" : "eSbot Connected"}
+    return { "status" : "eSbot Connected" }

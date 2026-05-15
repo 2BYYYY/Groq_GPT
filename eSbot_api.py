@@ -16,8 +16,4 @@ def eSbot_query(request: eSbot_request):
 
 @api.get("/ping")
 def eSbot_ping():
-    return { "status" : "eSbot Connected" }
-
-@api.get("/check")
-def debug():
-    return {"document_count": collection.count()}
+    return { "status" : "200 : eSbot Connected" }

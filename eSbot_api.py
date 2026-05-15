@@ -1,19 +1,21 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from eSbot import run_eSbot, collection
+from eSbot import run_eSbot, get_collection_count
 
 api = FastAPI()
 
-# structure of the JSON else error
 class eSbot_request(BaseModel):
     query: str
 
 @api.post("/query")
 def eSbot_query(request: eSbot_request):
-    rag_query = request.query
-    answer = run_eSbot(rag_query)
-    return { "response": answer } 
+    answer = run_eSbot(request.query)
+    return {"response": answer}
 
 @api.get("/ping")
 def eSbot_ping():
-    return { "status" : "200 : eSbot Connected" }
+    return {"status": "200 : eSbot Connected"}
+
+@api.get("/check")
+def check():
+    return {"document_count": get_collection_count()}

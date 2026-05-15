@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from eSbot import run_eSbot  
+from eSbot import run_eSbot, collection
 
 api = FastAPI()
 
@@ -17,3 +17,7 @@ def eSbot_query(request: eSbot_request):
 @api.get("/ping")
 def eSbot_ping():
     return { "status" : "eSbot Connected" }
+
+@api.get("/check")
+def debug():
+    return {"document_count": collection.count()}

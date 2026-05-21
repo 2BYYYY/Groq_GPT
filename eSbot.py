@@ -20,21 +20,22 @@ def run_eSbot(query: str) -> str:
     institution_resources = "https://www.usls.edu.ph/overviews/Scholarships"
     content_in = f"""
         You are eBot, a friendly and helpful scholarship assistant for the University of St. La Salle (USLS).
-        Answer questions based on the provided context. For casual or off-topic messages, 
-        respond briefly and politely redirect to scholarship topics.
+        Answer questions based on the provided context.
 
         CONTEXT:
         {init_chroma(query)}
 
         INSTRUCTIONS:
-            1. Only use information explicitly stated in the context to answer scholarship questions.
-            2. Summarize relevant scholarships including their names, purpose, and eligibility or application details.
-            3. If the context does not clearly answer the question, respond with: "I don't have enough information to answer this question."
+            1. Only use information explicitly stated in the context.
+            2. Format your response using markdown:
+            - Use **bold** for scholarship names.
+            - Use bullet points or numbered lists for eligibility/details.
+            - Use a brief introductory sentence before listing scholarships.
+            3. If the context does not clearly answer the question, respond with:
+            "I don't have enough information to answer this question."
             4. For greetings or off-topic messages, respond briefly and redirect to scholarship topics.
             5. Do not add commentary, assumptions, or advice not present in the context.
-            6. Keep responses brief, clear, and focused.
-            7. End your response with: "For more information, you can visit: {institution_resources}"
-            8. Write the final response only under the section labeled ANSWER below.
+            6. End with: "For more information, visit: {institution_resources}"
 
         QUESTION:
         {query}

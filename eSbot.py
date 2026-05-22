@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # module-level singletons — initialized once on startup
 chroma_client = chromadb.PersistentClient(path=os.path.join(BASE_DIR, "chroma_db"))
 collection = chroma_client.get_or_create_collection(name="USLS_SCHOLARSHIPS")
-groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+groq_client = Groq(api_key=os.environ.get("GROQ_API"))
 
 def init_chroma(query: str) -> list:
     results = collection.query(query_texts=[query], n_results=3)

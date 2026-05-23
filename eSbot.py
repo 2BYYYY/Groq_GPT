@@ -37,7 +37,7 @@ def run_eSbot(query: str) -> str:
             5. For greetings or off-topic messages, respond briefly and redirect to scholarship topics.
             6. Do not add commentary, assumptions, or advice not present in the context.
             7. Keep responses brief, clear, and focused.
-            8. End your response with: "For more information, you can visit: {institution_resources}"
+            8. End your response with this exact markdown-formatted link as a separate paragraph at the absolute end of your response: "For more information, you can visit the [USLS Scholarship Overview]({institution_resources})."
             9. Write the final response only under the section labeled ANSWER below.
 
         QUESTION:
